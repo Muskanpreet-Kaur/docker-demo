@@ -20,3 +20,5 @@ jobs:
       - name: Run Docker container
         run: |
           docker run -d -p 8080:80 my-nginx-image
+
+
