@@ -16,4 +16,18 @@ jobs:
         sudo systemctl start docker
 
     - name: Build Docker image
-      run: sudo docker build -t my-image:latest .
+        run: |
+          docker build -t hello-python-docker .
+        
+      - name: Run Docker container
+        run: |
+          docker run --name hello-python-container hello-python-docker
+        
+      - name: Display Docker container logs
+        run: |
+          docker logs hello-python-container
+
+      - name: Clean up
+        run: |
+          docker stop hello-python-container
+          docker rm hello-python-container
